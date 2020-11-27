@@ -6,10 +6,14 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
+	printf("Converting map file\n");
     // "simple_map.rou.xml"
     string input_file = argv[1];
     // "simple_map_fix.rou.xml"
     string output_file = argv[2];
+	
+	// number of vehicles per route
+	string number_vehicles = argv[3];
 
     printf("Input File: %s\n", input_file.c_str());
     printf("Output File: %s\n", output_file.c_str());
@@ -44,7 +48,7 @@ int main(int argc, char *argv[]) {
             flow += " type=\"vtype0\" route=";
             flow += "\"";
             flow += "route" + to_string(count);
-            flow += "\" begin=\"0\" period=\"3\" number=\"10\"/>\n";
+            flow += "\" begin=\"0\" period=\"3\" number=\""+number_vehicles+"\"/>\n";
             output << flow;
             count = count + 1;
 
